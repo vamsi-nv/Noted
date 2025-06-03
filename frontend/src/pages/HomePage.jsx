@@ -18,7 +18,10 @@ function HomePage() {
         setNotes(notes);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching notes:", error.response?.data || error.message);
+        console.error(
+          "Error fetching notes:",
+          error.response?.data || error.message
+        );
         toast.error(error.response?.data?.message || "Failed to load notes");
         setLoading(false);
       }

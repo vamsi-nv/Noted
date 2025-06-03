@@ -37,11 +37,13 @@ function Note({ note, setNotes }) {
   };
 
   return (
-    <div className="w-[90%] mx-auto sm:w-3/3">
-      <Link to={`/note/${note._id}`}>
-        <div className="border min-w-full border-gray-300 rounded-xl hover:dark:-translate-y-1 hover:shadow-xl bg-gray-50 hover:bg-white transition-all duration-200 flex flex-col gap-3 items-start p-5 dark:bg-neutral-900 dark:border-neutral-500 hover:dark:bg-neutral-900">
+    <div className="h-full w-full">
+      <Link to={`/note/${note._id}`} className="block h-full w-full">
+        <div className="border h-full w-full border-gray-300 rounded-xl hover:dark:-translate-y-1 hover:shadow-xl bg-gray-50 hover:bg-white transition-all duration-200 flex flex-col gap-3 items-start p-5 dark:bg-neutral-900 dark:border-neutral-500 hover:dark:bg-neutral-900">
           <h3 className="text-xl font-semibold">{note.title}</h3>
-          <p className="text-gray-700 dark:text-gray-400">{note.content}</p>
+          <p className="text-gray-700 dark:text-gray-400 flex-1">
+            {note.content}
+          </p>
           <div className="flex items-center justify-between w-full mt-4">
             <span className="text-sm text-gray-500">
               {formatDate(note.createdAt)}
@@ -49,7 +51,7 @@ function Note({ note, setNotes }) {
             <div className="flex items-center space-x-3">
               <PenSquareIcon className="size-4 hover:dark:text-white text-gray-500 hover:text-gray-700" />
               <button onClick={(e) => handleDelete(e, note._id)}>
-                <Trash2 className="text-red-400 size-4 cursor-pointer hover:text-red-600 hover:dark:text-red-500"/>
+                <Trash2 className="text-red-400 size-4 cursor-pointer hover:text-red-600 hover:dark:text-red-500" />
               </button>
             </div>
           </div>
