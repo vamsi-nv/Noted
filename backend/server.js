@@ -11,18 +11,17 @@ const port = process.env.PORT || 8000;
 connectDB();
 
 app.use(express.json());
-app.use(cors({origin : "https://noted-henna.vercel.app", credentials : true}))
-
+app.use(cors({ origin: "https://noted-henna.vercel.app", credentials: true }));
 
 app.get("/", (req, res) => {
-  res.send("working")
-})
+  res.send("api working");
+});
 
-app.get('/api/health', async (req, res) => {
+app.get("/api/health", async (req, res) => {
   const start = Date.now();
   const healthcheck = {
     uptime: process.uptime(),
-    message: 'OK',
+    message: "OK",
     timestamp: new Date(),
     responseTime: `${Date.now() - start}ms`,
   };
